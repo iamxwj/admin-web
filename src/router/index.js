@@ -22,7 +22,7 @@ import Layout from '../views/layout/Layout'
   }
 **/
 export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
+  // { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
 
   {
@@ -59,6 +59,19 @@ export const constantRouterMap = [
     ]
   },
 
+  {
+    path: '/test',
+    component: Layout,
+    meta: { title: '第一个测试', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'test table',
+        component: () => import('@/views/test_table/index'),
+        meta: { title: 'example001', icon: 'table' }
+      }
+    ]
+  },
   {
     path: '/form',
     component: Layout,
@@ -138,4 +151,3 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-
